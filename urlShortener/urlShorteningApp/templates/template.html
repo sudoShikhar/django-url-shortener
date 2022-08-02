@@ -1,0 +1,20 @@
+{% load static %}
+
+<head>
+    <!-- <link href="{% static 'cube_puzzle/bootstrap.min.css' %}" rel="stylesheet"> -->
+    <!-- <script src="https://unpkg.com/htmx.org@1.7.0" integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"></script> -->
+    <!-- <script src="{% static 'cube_puzzle/htmx.min.js' %}"></script> -->
+    <!-- Custom styles for this template -->
+    <!-- <link href="{% static 'cube_puzzle/signin.css' %}" rel="stylesheet"> -->
+</head>
+<body>
+    <form method="post" style="margin:auto">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+        <label for="id_result">{{res_label}}</label>
+        <textarea name="result" cols="40" rows="1" id="id_result">{{ output_result }}</textarea>
+
+    </form>
+    
+</body>
