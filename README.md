@@ -6,7 +6,7 @@ Activate: .\url-shortener-venv\Scripts\activate
 Deactivate: deactivate
 
 2. Make short url
-    text box to give long url
+    text box to give long url   
     text box to receive short url
     with alpine js?
 3. get long url of short
@@ -15,3 +15,6 @@ Deactivate: deactivate
     with alpine js?
 4. redirecter
     localhost/<the 10 character hash>
+
+5. Superuser ddmin
+    pass admin
