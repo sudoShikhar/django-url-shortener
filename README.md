@@ -16,5 +16,7 @@ Deactivate: deactivate
 4. redirecter
     localhost/<the 10 character hash>
 
-5. Superuser ddmin
+5. Superuser admin
     pass admin
+
+6. Prettify forms and webpages with bootstrap and crispy
