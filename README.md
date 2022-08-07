@@ -20,4 +20,5 @@ Deactivate: deactivate
     pass admin
 
 6. Prettify forms and webpages with bootstrap and crispy
+better https://www.youtube.com/watch?v=6-XXvUENY_8
     https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html
