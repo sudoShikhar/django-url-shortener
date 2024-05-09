@@ -1,0 +1,10 @@
+<h1>Enter any URL and get the corresponding long/short URL.</h1>
+<br />
+<form method="post" style="margin:auto">
+  {% csrf_token %} {% for field in form %}
+  <label class="form-label fs-3" for="{{ field.auto_id }}">{{ field.label }}</label>
+  {{ field }} {% endfor %}
+  <label class="form-label fs-3" for="id_result">{{res_label}}</label>
+  <textarea style="resize: none" rows="1" name="result" id="id_result" class="mb-3 form-control w-75">{{ output_result }}</textarea>
+  <button type="submit" value="Submit" class="btn btn-primary">Get!</button>
+</form>

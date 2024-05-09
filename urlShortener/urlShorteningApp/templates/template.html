@@ -18,36 +18,7 @@
     {% include "header.html" %}
     <div class="container">
       <br />
-      {% if home %}
-      <div class="px-4 py-5 my-5 text-center">
-        <!-- <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-        <h1 class="display-5 fw-bold text-body-emphasis">URL Shortner App</h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">
-            This app is built by <a href="https://kakashi215.github.io/" class="text-decoration-none" target="_blank">Shikhar</a>.<br />
-            Free forever!<br />
-            Check source code on <a href="https://github.com/kakashi215" class="text-decoration-none" target="_blank">Github</a>.
-          </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a href="{% url 'make_short' %}" type="button" class="btn btn-success btn-lg px-4 gap-3">Shorten URL!</a>
-            <a href="{% url 'get_long' %}" type="button" class="btn btn-warning btn-lg px-4 gap-3">Get Long URL!</a>
-          </div>
-        </div>
-      </div>
-      {% else %}
-      <h1>Enter any URL and get the corresponding long/short URL.</h1>
-      <br />
-      <form method="post" style="margin:auto">
-        {% csrf_token %}
-        <!-- {{ form }} -->
-        {% for field in form %}
-        <label class="form-label fs-3" for="{{ field.auto_id }}">{{ field.label }}</label>
-        {{ field }} {% endfor %}
-        <label class="form-label fs-3" for="id_result">{{res_label}}</label>
-        <textarea style="resize: none" rows="1" name="result" id="id_result" class="mb-3 form-control w-75">{{ output_result }}</textarea>
-        <button type="submit" value="Submit" class="btn btn-primary">Get!</button>
-      </form>
-      {% endif %}
+      {% if home %} {% include "home.html" %} {% else %} {% include "form.html" %} {% endif %}
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
