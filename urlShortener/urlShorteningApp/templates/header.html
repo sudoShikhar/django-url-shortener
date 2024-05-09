@@ -14,7 +14,7 @@
         href="{% url 'make_short' %}"
         type="button"
         class="btn {% if 'make-short' in request.path %}btn-primary{% else %}btn-info{% endif %} btn-lg px-4 gap-3 text-white"
-        >Get Short URL!</a
+        >Generate Short URL</a
       >
     </li>
     <li class="nav-item me-2">
@@ -22,7 +22,7 @@
         href="{% url 'get_long' %}"
         type="button"
         class="btn {% if 'get-long' in request.path %}btn-primary{% else %}btn-info{% endif %} btn-lg px-4 gap-3 text-white"
-        >Get Long URL!</a
+        >Retrieve Long URL</a
       >
     </li>
   </ul>

@@ -29,18 +29,18 @@ def makeShort(request):
             return render(request, "template.html", {
                 'form':MakeShortForm(request.POST),
                 'output_result': output_result,
-                'res_label': "Short URL:"
+                'res_label': "Short URL"
                 })
         else:
             return render(request, 'template.html', {
                 'form':MakeShortForm(request.POST),
-                'res_label': "Short URL:",
+                'res_label': "Short URL",
                 'output_result': 'Please verify URL...',
             })
     else:
         return render(request, 'template.html', {
             'form':MakeShortForm(),
-            'res_label': "Short URL:"
+            'res_label': "Short URL"
             })
 
 
@@ -55,13 +55,13 @@ def getLong(request):
                 output_result = "Short URL not found in DB. Please create new entry with `make-short-url` endpoint."
             return render(request, "template.html", {
                 'form':GetLongForm(request.POST),
-                'res_label': "Long URL:",
+                'res_label': "Long URL",
                 'output_result': output_result,
                 })
     else:
         return render(request, 'template.html', {
             'form':GetLongForm(),
-            'res_label': "Long URL:"
+            'res_label': "Long URL"
             })
 
 def urlRedirector(request,urlHash):

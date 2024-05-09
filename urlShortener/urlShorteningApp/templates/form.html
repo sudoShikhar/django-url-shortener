@@ -1,10 +1,17 @@
-<h1>Enter any URL and get the corresponding long/short URL.</h1>
+<h1>
+  {% if 'make-short' in request.path %} Enter the Long URL to generate the corresponding Short URL. {% else %} Enter the Short URL to
+  generate the corresponding Long URL. {% endif %}
+</h1>
 <br />
 <form method="post" style="margin:auto">
   {% csrf_token %} {% for field in form %}
   <label class="form-label fs-3" for="{{ field.auto_id }}">{{ field.label }}</label>
   {{ field }} {% endfor %}
+  <button type="submit" value="Submit" class="btn btn-success btn-lg px-4 gap-3 mb-5 text-white">
+    {% if 'make-short' in request.path %}Generate Short URL!{% else %}Retrieve Long URL!{% endif %}
+  </button>
+  <br />
   <label class="form-label fs-3" for="id_result">{{res_label}}</label>
+  <div class="w-25 ms-2 d-inline" id="copy_url_icon" onclick="resultCopyFn()"><i class="fa-solid fa-copy fa-lg align-baseline"></i></div>
   <textarea style="resize: none" rows="1" name="result" id="id_result" class="mb-3 form-control w-75">{{ output_result }}</textarea>
-  <button type="submit" value="Submit" class="btn btn-primary">Get!</button>
 </form>

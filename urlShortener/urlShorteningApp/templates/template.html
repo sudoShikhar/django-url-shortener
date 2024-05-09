@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>URL Shortner</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'url-shortener/favicon.ico' %}" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -12,7 +13,8 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <style></style>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://kit.fontawesome.com/396f7a6e97.js" crossorigin="anonymous"></script>
   </head>
   <body>
     {% include "header.html" %}
@@ -25,5 +27,18 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function resultCopyFn() {
+        const copy_ele = document.getElementById("copy_url_icon");
+        const result_ele = document.getElementById("id_result");
+        navigator.clipboard.writeText(result_ele.value)
+          .then(() => {
+            console.log('Text copied to clipboard',result_ele.value);
+          })
+          .catch(err => {
+            console.error('Failed to copy text: ', err);
+          });
+      }
+    </script>
   </body>
 </html>
