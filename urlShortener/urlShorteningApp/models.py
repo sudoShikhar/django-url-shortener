@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class UrlMapping(models.Model):
     longURL = models.URLField(max_length = 300)

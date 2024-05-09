@@ -1,0 +1,30 @@
+<header class="d-flex flex-wrap align-items-center py-3 mb-4 border-bottom">
+  <a href="{% url 'url_shortener_home' %}" class="d-flex align-items-center mb-3 mb-md-0 link-body-emphasis text-decoration-none col-md-3">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+    <span class="fs-2">URL Shortner Home</span>
+  </a>
+  {% if not home %}
+  <ul class="nav nav-pills">
+    <!-- <li class="nav-item"><a href = "{% url 'url_shortener_home' %}" class="nav-link {% if 'make-short' not in request.path and 'get-long' not in request.path %} active {% endif %}">Home</a></li> -->
+    <li class="nav-item me-2">
+      <!-- <a href = "{% url 'make_short' %}" class="nav-link {% if 'make-short' in request.path %} active{% endif %}">Shorten URL!</a> -->
+      <a
+        href="{% url 'make_short' %}"
+        type="button"
+        class="btn {% if 'make-short' in request.path %}btn-primary{% else %}btn-info{% endif %} btn-lg px-4 gap-3 text-white"
+        >Get Short URL!</a
+      >
+    </li>
+    <li class="nav-item me-2">
+      <a
+        href="{% url 'get_long' %}"
+        type="button"
+        class="btn {% if 'get-long' in request.path %}btn-primary{% else %}btn-info{% endif %} btn-lg px-4 gap-3 text-white"
+        >Get Long URL!</a
+      >
+    </li>
+  </ul>
+  {% endif %}
+</header>
