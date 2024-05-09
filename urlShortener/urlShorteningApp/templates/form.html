@@ -12,6 +12,16 @@
   </button>
   <br />
   <label class="form-label fs-3" for="id_result">{{res_label}}</label>
-  <div class="w-25 ms-2 d-inline" id="copy_url_icon" onclick="resultCopyFn()"><i class="fa-solid fa-copy fa-lg align-baseline"></i></div>
+  <div
+    data-bs-toggle="tooltip"
+    data-bs-placement="right"
+    data-bs-custom-class="custom-tooltip"
+    data-bs-title="Click to copy"
+    class="w-25 ms-2 d-inline"
+    id="copy_url_icon"
+    onclick="resultCopyFn()"
+  >
+    <i class="fa-solid fa-copy fa-lg align-baseline"></i>
+  </div>
   <textarea style="resize: none" rows="1" name="result" id="id_result" class="mb-3 form-control w-75">{{ output_result }}</textarea>
 </form>

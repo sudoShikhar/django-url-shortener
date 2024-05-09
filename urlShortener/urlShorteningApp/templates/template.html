@@ -15,6 +15,13 @@
     />
     <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/396f7a6e97.js" crossorigin="anonymous"></script>
+    <style>
+      .custom-tooltip {
+        margin-left: 0.6% !important;
+        --bs-tooltip-bg: var(--bs-indigo);
+        --bs-tooltip-color: var(--bs-white);
+      }
+    </style>
   </head>
   <body>
     {% include "header.html" %}
@@ -28,16 +35,24 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
       function resultCopyFn() {
         const copy_ele = document.getElementById("copy_url_icon");
         const result_ele = document.getElementById("id_result");
-        navigator.clipboard.writeText(result_ele.value)
+        if(result_ele.value){
+          navigator.clipboard.writeText(result_ele.value)
           .then(() => {
             console.log('Text copied to clipboard',result_ele.value);
+            document.getElementsByClassName('tooltip-inner')[0].innerHTML = 'Text copied to clipboard!';
           })
           .catch(err => {
             console.error('Failed to copy text: ', err);
           });
+        } else {
+          document.getElementsByClassName('tooltip-inner')[0].innerHTML = 'Generate URL first!';
+        }
       }
     </script>
   </body>
