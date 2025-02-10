@@ -38,9 +38,8 @@
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
       function resultCopyFn() {
-        const copy_ele = document.getElementById("copy_url_icon");
         const result_ele = document.getElementById("id_result");
-        if(result_ele.value){
+        if(result_ele && result_ele.value){
           navigator.clipboard.writeText(result_ele.value)
           .then(() => {
             console.log('Text copied to clipboard',result_ele.value);
@@ -52,6 +51,26 @@
         } else {
           document.getElementsByClassName('tooltip-inner')[0].innerHTML = 'Generate URL first!';
         }
+      }
+
+      // https://web.dev/articles/async-clipboard#security_and_permissions
+      // read this for permissions
+      // take permission once in the beginning
+      // then anytime user tries to paste from clipboard
+      function pasteFromClipboard(elementId) {
+        console.log(elementId)
+        const result_ele = document.getElementById(elementId);
+        if(result_ele){
+          navigator.clipboard.readText()
+          .then(text => {
+            result_ele.value = text;
+            console.log('Pasted content: ', text);
+          })
+          .catch(err => {
+            console.error('Failed to paste text: ', err);
+          });
+        }
+        console.log(result_ele);
       }
     </script>
   </body>
