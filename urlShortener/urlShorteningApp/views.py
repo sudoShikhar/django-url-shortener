@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
+from django.conf import settings
 import secrets
 
 from .forms import MakeShortForm, GetLongForm
@@ -8,7 +9,7 @@ from .models import UrlMapping
 
 
 def home(request):
-    return render(request, "template.html" , { 'home' : True })
+    return render(request, "template.html" , { 'home' : True, **settings.DEPLOYMENT_URLS })
 
 def makeShort(request):
     # Using secrets.token_hex(4) for generating new hashes.
