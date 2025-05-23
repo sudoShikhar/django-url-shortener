@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-yey(a4(juxm_y2qo4@%4o6oh(%nc1lj+wvscfc(=w((9n_zz-3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'shikharurlshortener.pythonanywhere.com',
+]
 
 
 # Application definition
