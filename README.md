@@ -1,8 +1,8 @@
 # django-url-shortener
 
 1. VENV Commands
-   Created: python -m venv url-shortener-venv
-   Activate: .\url-shortener-venv\Scripts\activate
+   Created: python -m venv venv
+   Activate: .\venv\Scripts\activate
    Deactivate: deactivate
 
 2. Make short url
